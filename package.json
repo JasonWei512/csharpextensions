@@ -161,6 +161,11 @@
                     "type": "boolean",
                     "default": true,
                     "description": "If created classes should include default namespaces"
+                },
+                "csharpextensions.useFileScopedNamespace": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Use file scoped namespace in .Net 6.0+ projects"
                 }
             }
         }
