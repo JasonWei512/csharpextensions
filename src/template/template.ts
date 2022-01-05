@@ -6,7 +6,7 @@ import * as path from 'path';
 import { sortBy, uniq } from 'lodash';
 
 import NamespaceDetector from '../namespaceDetector';
-import fileScopedNamespaceModifier from '../fileScopedNamespaceModifier';
+import fileScopedNamespaceConverter from '../fileScopedNamespaceConverter';
 
 export default abstract class Template {
     private _name: string;
@@ -54,7 +54,7 @@ export default abstract class Template {
 
             let text = doc;
 
-            text = await fileScopedNamespaceModifier.applyFileScopedNamespace(text, filePath);
+            text = await fileScopedNamespaceConverter.getFileScopedNamespaceFormOfTemplateIfNecessary(text, filePath);
 
             text = text
                 .replace(Template.NamespaceRegex, namespace)
