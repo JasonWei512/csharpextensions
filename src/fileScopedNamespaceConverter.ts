@@ -33,7 +33,8 @@ export class FileScopedNamespaceConverter {
         }
 
         const csprojFile = csprojs[0];
-        const fileContent =  await (await workspace.openTextDocument(Uri.file(csprojFile))).getText();
+        const csprojDocument =  await workspace.openTextDocument(Uri.file(csprojFile))
+        const fileContent = csprojDocument.getText();
         const projectReader = new CsprojReader(fileContent);
         const targetFramework = await projectReader.getTargetFramework();
 
